@@ -1,0 +1,23 @@
+
+
+```{r}
+
+# page setup
+
+title <- "Page 2"
+
+```
+
+
+### `r title`  X2
+
+```{r}
+
+positive_answer_total <- prop.yes(my_data$X2, restrict = TRUE, restrict_level = 10)
+
+your_positive_answers <-  prop.yes(filtered_data$X2, restrict = TRUE, restrict_level = 10)
+
+```
+
+Total: `r round(100*positive_answer_total, 2)`%  
+You: `r round(100*your_positive_answers, 2)`%

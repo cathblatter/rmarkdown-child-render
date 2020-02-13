@@ -1,0 +1,52 @@
+---
+title: "Testing a Dashboard"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: rows
+    vertical_layout: scroll
+params:
+  center: 100
+  restrict_level: 10
+---
+
+```{r setup, include=FALSE}
+# load packages
+library(flexdashboard)
+library(tidyverse)
+
+# create and load data
+source("R/000_prepare_data.R")
+
+# source self-written functions for the report
+source("R/00_functions.R")
+
+# create a filtered sample
+filtered_data <- my_data %>% filter(center == params$center)
+
+
+```
+
+Page 1 {data-navmenu="Menu A"}
+=====================================
+
+```{r child="childs/page1.Rmd"}
+
+```
+
+
+Page 2 {data-navmenu="Menu A"}
+=====================================  
+
+```{r child="childs/page2.Rmd"}
+
+```
+
+
+Page 3 {data-navmenu="Menu B"}
+=====================================
+
+```{r child="childs/page3.Rmd"}
+
+```
+
+
